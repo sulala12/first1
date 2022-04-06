@@ -5,7 +5,7 @@ import random
 
 import telebot
 
-bot = telebot.TeleBot('5079416344:AAEo4QCPSjzJXWsSQN-fZ4WfqpOT_seyH4c')
+bot = telebot.TeleBot('')
 telebot.logger.setLevel(logging.INFO)
 
 storage = dict()
@@ -53,7 +53,7 @@ def process_digit_step(message):
         bot.send_message(message.chat.id, f'Congratulate! You find a number correctly! It was: {random_digit}')
         storage1(message.chat.id)
         return
-    elif attempt > 1:
+    if attempt > 1:
         attempt -= 1
         storage2(message.chat.id, "attempt", attempt)
         bot.send_message(message.chat.id, f'Mistake, you have last: {attempt} attempts')

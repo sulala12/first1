@@ -58,7 +58,4 @@ def process_digit_step(message):
         storage2(message.chat.id, "attempt", attempt)
         bot.send_message(message.chat.id, f'Mistake, you have last: {attempt} attempts')
         bot.register_next_step_handler(message, process_digit_step)
-    else:
-        bot.send_message(message.chat.id, 'You lose!')
-        storage1(message.chat.id)
-        return
+
